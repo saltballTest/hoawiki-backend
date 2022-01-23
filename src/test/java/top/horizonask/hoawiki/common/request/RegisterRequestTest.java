@@ -2,8 +2,11 @@ package top.horizonask.hoawiki.common.request;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import top.horizonask.hoawiki.authorization.request.RegisterRequest;
@@ -30,6 +33,7 @@ public class RegisterRequestTest {
     }
 
     @Test
+    @DisplayName("Register Request with right data.")
     public void testRegisterRequest() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUserName("UserName");
@@ -39,10 +43,12 @@ public class RegisterRequestTest {
         assertTrue(violations.isEmpty());
     }
 
-    @Test
-    public void testRegisterRequestUserNameWrong() {
+    @ParameterizedTest
+    @DisplayName("Register Request with illegal userName data.")
+    @ValueSource(strings = {";","","\n","*","#","(",")","\\","~",",","$"})
+    public void testRegisterRequestUserNameWrong(String string) {
         RegisterRequest registerRequest = new RegisterRequest();
-        registerRequest.setUserName(";");
+        registerRequest.setUserName(string);
         registerRequest.setPassword("11111111");
         registerRequest.setUserEmail("User@test.com");
         Set<ConstraintViolation<RegisterRequest>> violations = validator.validate(registerRequest);
@@ -50,91 +56,17 @@ public class RegisterRequestTest {
         for (ConstraintViolation<RegisterRequest> violation : violations) {
             assertEquals(violation.getPropertyPath().toString(), "userName");
         }
-        registerRequest.setUserName("");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userName");
-        }
-
-        registerRequest.setUserName("\n");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userName");
-        }
-
-        registerRequest.setUserName("*");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userName");
-        }
-
-        registerRequest.setUserName("#");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userName");
-        }
-
-        registerRequest.setUserName("()");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userName");
-        }
-
-        registerRequest.setUserName("\\");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userName");
-        }
     }
 
-    @Test
-    public void testRegisterRequestUserEmailWrong() {
+    @ParameterizedTest
+    @DisplayName("Register Request with illegal userEmail data.")
+    @ValueSource(strings = {"","User@test@com.com","Usertest.com","User@test.com\n","*","#","(",")","\\","~",",","$"})
+    public void testRegisterRequestUserEmailWrong(String string) {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUserName("UserName");
         registerRequest.setPassword("11111111");
-        registerRequest.setUserEmail("Usertest.com");
+        registerRequest.setUserEmail(string);
         Set<ConstraintViolation<RegisterRequest>> violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userEmail");
-        }
-
-        registerRequest.setUserEmail("User@test@com.com");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userEmail");
-        }
-
-        registerRequest.setUserEmail("");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userEmail");
-        }
-
-        registerRequest.setUserEmail("User@test.com\n");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userEmail");
-        }
-
-        registerRequest.setUserEmail("*");
-        violations = validator.validate(registerRequest);
-        assertFalse(violations.isEmpty());
-        for (ConstraintViolation<RegisterRequest> violation : violations) {
-            assertEquals(violation.getPropertyPath().toString(), "userEmail");
-        }
-
-        registerRequest.setUserEmail("$");
-        violations = validator.validate(registerRequest);
         assertFalse(violations.isEmpty());
         for (ConstraintViolation<RegisterRequest> violation : violations) {
             assertEquals(violation.getPropertyPath().toString(), "userEmail");
