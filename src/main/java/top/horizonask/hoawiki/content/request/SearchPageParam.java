@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 public class SearchPageParam extends PaginationParam {
 
     @NotBlank(message = "(・∀・(・∀・?)你不告诉我关键词我怎么帮你找数据？")
-    @Size(max = 15, message = "Σ(っ °Д °;)っ你这是什么页码？")
+    @Size(max = 15, message = "Σ(っ °Д °;)っ太长啦！")
     private String searchKeyWord;
 }
 
