@@ -2,7 +2,6 @@ package top.horizonask.hoawiki.content.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.transaction.annotation.Transactional;
-import top.horizonask.hoawiki.authorization.entity.User;
 import top.horizonask.hoawiki.common.ApiStatus;
 import top.horizonask.hoawiki.content.entity.Content;
 
@@ -39,7 +38,7 @@ public interface ContentService extends IService<Content> {
      * @param contentId content id to match
      * @return java.util.List<top.horizonask.hoawiki.content.entity.User>
      */
-    List<User> getContentAuthorsByContentId(Long contentId);
+    List<Long> getContentAuthorsByContentId(Long contentId);
 
     /**
      * Get all contents of page id

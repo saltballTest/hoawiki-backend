@@ -58,9 +58,9 @@ public class ConceptPageController {
             JSONObject pageItem = conceptPage.getJson();
             Content content = contentServiceImpl.getPageLatestContentBriefById(conceptPage.getPageId());
             if (content != null) {
-                pageItem.set("content",content.getContentText());
+                pageItem.set("content", content.getContentText());
             } else {
-                pageItem.set("content",null);
+                pageItem.set("content", null);
             }
             responseUtils.accumulate("pageItems", pageItem); // page items
         }
@@ -91,7 +91,7 @@ public class ConceptPageController {
 
     @GetMapping("/{pageId}")
     public ResponseEntity<JSONObject> getPageById(@PathVariable String pageId) {
-        if(ValidateUtils.wrongRequestPageId(pageId)){
+        if (ValidateUtils.wrongRequestPageId(pageId)) {
             return ResponseUtils.fail(ApiStatus.API_RESPONSE_PARAM_BAD)
                     .message("页面ID格式错误")
                     .toResponseEntity();
@@ -110,7 +110,7 @@ public class ConceptPageController {
 
     @PutMapping("/{pageId}/recover")
     public ResponseEntity<JSONObject> recoverPageById(@PathVariable String pageId) {
-        if(ValidateUtils.wrongRequestPageId(pageId)){
+        if (ValidateUtils.wrongRequestPageId(pageId)) {
             return ResponseUtils.fail(ApiStatus.API_RESPONSE_PARAM_BAD)
                     .message("页面ID格式错误")
                     .toResponseEntity();
@@ -126,7 +126,7 @@ public class ConceptPageController {
 
     @DeleteMapping("/{pageId}")
     public ResponseEntity<JSONObject> deletePageById(@PathVariable String pageId) {
-        if(ValidateUtils.wrongRequestPageId(pageId)){
+        if (ValidateUtils.wrongRequestPageId(pageId)) {
             return ResponseUtils.fail(ApiStatus.API_RESPONSE_PARAM_BAD)
                     .message("页面ID格式错误")
                     .toResponseEntity();

@@ -52,7 +52,7 @@ public class ContentController {
         if (content != null) {
             ResponseUtils res = ResponseUtils.success();
             res.data(content.getJson());
-            for(Long userId:contentAuthorMapper.getAuthorsIdsOfContent(content.getContentId())){
+            for(Long userId:contentServiceImpl.getContentAuthorsByContentId(content.getContentId())){
                 res.accumulate("authors",userServiceImpl.getUserBriefInfo(userId));
             }
             return res.toResponseEntity();

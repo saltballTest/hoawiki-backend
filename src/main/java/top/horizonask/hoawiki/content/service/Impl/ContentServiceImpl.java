@@ -1,12 +1,14 @@
 package top.horizonask.hoawiki.content.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import top.horizonask.hoawiki.authorization.entity.User;
 import top.horizonask.hoawiki.authorization.mapper.UserMapper;
+import top.horizonask.hoawiki.authorization.security.services.UserDetailsImpl;
 import top.horizonask.hoawiki.common.ApiStatus;
 import top.horizonask.hoawiki.content.entity.Content;
+import top.horizonask.hoawiki.content.entity.ContentAuthor;
 import top.horizonask.hoawiki.content.entity.PageContent;
 import top.horizonask.hoawiki.content.mapper.ConceptPageMapper;
 import top.horizonask.hoawiki.content.mapper.ContentAuthorMapper;
@@ -69,8 +71,8 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
      * @return java.util.List<top.horizonask.hoawiki.content.entity.User>
      */
     @Override
-    public List<User> getContentAuthorsByContentId(Long contentId) {
-        return userMapper.selectBatchIds(contentAuthorMapper.getAuthorsIdsOfContent(contentId));
+    public List<Long> getContentAuthorsByContentId(Long contentId) {
+        return contentAuthorMapper.getAuthorsIdsOfContent(contentId);
     }
 
     /**
@@ -101,9 +103,14 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
         PageContent newPageContent = new PageContent();
         newPageContent.setContentId(newContent.getContentId());
         newPageContent.setPageId(pageId);
+        ContentAuthor contentAuthor = new ContentAuthor();
+        contentAuthor.setContentId(newContent.getContentId());
+        UserDetailsImpl userDetailsImpl = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        contentAuthor.setUserId(userDetailsImpl.getUserId());
         conceptPageMapper.updateTimeById(pageId);
         int affectedCountPageContent = pageContentMapper.insert(newPageContent);
-        if(affectedCountContent==1&&affectedCountPageContent==1){
+        int affectedPageContentAuthor = contentAuthorMapper.insert(contentAuthor);
+        if(affectedCountContent==1&&affectedCountPageContent==1&&affectedPageContentAuthor==1){
             return ApiStatus.API_RESPONSE_CONTENT_CREATED;
         }
         else{
