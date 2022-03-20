@@ -11,7 +11,7 @@ CREATE TABLE `page_contents`
     INDEX `fk_page_content_content_id_idx` (`content_id` ASC) VISIBLE,
     CONSTRAINT `fk_page_content_page_id`
         FOREIGN KEY (`page_id`)
-            REFERENCES `pages` (`page_id`)
+            REFERENCES `concept_pages` (`page_id`)
             ON DELETE CASCADE
             ON UPDATE CASCADE,
     CONSTRAINT `fk_page_content_content_id`
@@ -19,7 +19,7 @@ CREATE TABLE `page_contents`
             REFERENCES `contents` (`content_id`)
             ON DELETE CASCADE
             ON UPDATE CASCADE
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- //@UNDO
 -- SQL to undo the change goes here.

@@ -37,20 +37,30 @@ public class User extends Model<User> {
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @TableField(value = "delete_time")
+    @TableField(value = "delete_time", fill = FieldFill.INSERT)
+    @TableLogic()
     private LocalDateTime deleteTime;
 
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
+    public JSONObject getJsonPublic() {
+        JSONObject data = JSONUtil.createObj();
+        boolean available = this.available();
+        data.set("userId", this.getUserId());
+        if (available) {
+            data.set("username", this.getUsername());
+        }
+        return data;
+    }
+
     public JSONObject getJson() {
         JSONObject data = JSONUtil.createObj();
         Boolean available = this.available();
-        data.set("available", available).set("userId", this.getUserId());
-        if (available) {
-            data.set("username", this.getUsername())
-                    .set("email", this.getEmail());
-        }
+        data.set("available", available)
+                .set("userId", this.getUserId())
+                .set("username", this.getUsername())
+                .set("email", this.getEmail());
         return data;
     }
 
