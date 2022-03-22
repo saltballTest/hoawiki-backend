@@ -30,6 +30,10 @@ mail:
   domain: ${MAIL_DOMAIN}
   from: ${spring.mail.username}@${mail.domain}
 
+oss:
+  WeChatEnv: ${WeChatEnv}
+
+
 mybatis-plus:
   global-config:
     db-config:
