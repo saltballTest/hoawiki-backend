@@ -2,7 +2,7 @@
   "nextVersion" : {
     "major" : 0,
     "minor" : 1,
-    "patch" : 5,
+    "patch" : 8,
     "preReleaseParts" : [ ],
     "buildMetaDataParts" : [ ],
     "preRelease" : "",
@@ -10,10 +10,152 @@
     "initialDevelopment" : true,
     "stable" : true
   },
-  "lastVersion" : null,
+  "lastVersion" : {
+    "major" : 0,
+    "minor" : 1,
+    "patch" : 7,
+    "preReleaseParts" : [ ],
+    "buildMetaDataParts" : [ ],
+    "preRelease" : "",
+    "buildMetaData" : "",
+    "initialDevelopment" : true,
+    "stable" : true
+  },
   "tags" : [ {
-    "version" : null,
-    "releaseDate" : null,
+    "version" : {
+      "major" : 0,
+      "minor" : 1,
+      "patch" : 7,
+      "preReleaseParts" : [ ],
+      "buildMetaDataParts" : [ ],
+      "preRelease" : "",
+      "buildMetaData" : "",
+      "initialDevelopment" : true,
+      "stable" : true
+    },
+    "releaseDate" : "2022-03-22 19:13:02.000 +0800",
+    "sections" : [ {
+      "title" : "Bug Fixes",
+      "commits" : [ {
+        "hashFull" : "92991f78908366b8ed78119984eb34592455f262",
+        "hash" : "92991f78908366b",
+        "hash7" : "92991f7",
+        "hash8" : "92991f78",
+        "commitTime" : "2022-03-22 19:13:02.000 +0800",
+        "commitTimeLong" : 1647947582,
+        "message" : "fix(changelog): correct the changelog generation settings.\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2022-03-22 19:08:51.000 +0800",
+          "name" : "Han Y.B",
+          "email" : "yanbohan98@gmail.com"
+        },
+        "committerIdent" : {
+          "when" : "2022-03-22 19:13:02.000 +0800",
+          "name" : "Han Y.B",
+          "email" : "yanbohan98@gmail.com"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/92991f78908366b8ed78119984eb34592455f262",
+        "commitType" : "fix",
+        "commitPackage" : null,
+        "commitScope" : "changelog",
+        "commitSubject" : "correct the changelog generation settings.",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "correct the changelog generation settings.",
+        "commitIssue" : null,
+        "rawCommitType" : "fix",
+        "localeMap" : null,
+        "rawCommitScope" : "changelog",
+        "messageBody" : "",
+        "messageTitle" : "fix(changelog): correct the changelog generation settings."
+      } ]
+    } ]
+  }, {
+    "version" : {
+      "major" : 0,
+      "minor" : 1,
+      "patch" : 6,
+      "preReleaseParts" : [ ],
+      "buildMetaDataParts" : [ ],
+      "preRelease" : "",
+      "buildMetaData" : "",
+      "initialDevelopment" : true,
+      "stable" : true
+    },
+    "releaseDate" : "2022-03-22 18:49:14.000 +0800",
+    "sections" : [ {
+      "title" : "Tests",
+      "commits" : [ {
+        "hashFull" : "45aff891023827c5a20c2e27bf639f9f9de34034",
+        "hash" : "45aff891023827c",
+        "hash7" : "45aff89",
+        "hash8" : "45aff891",
+        "commitTime" : "2022-03-22 18:49:14.000 +0800",
+        "commitTimeLong" : 1647946154,
+        "message" : "test(validation): Use test parameterized to simplify.\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2022-01-23 23:18:08.000 +0800",
+          "name" : "Han Y.B",
+          "email" : "yanbohan98@gmail.com"
+        },
+        "committerIdent" : {
+          "when" : "2022-03-22 18:49:14.000 +0800",
+          "name" : "Han Y.B",
+          "email" : "yanbohan98@gmail.com"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/45aff891023827c5a20c2e27bf639f9f9de34034",
+        "commitType" : "test",
+        "commitPackage" : null,
+        "commitScope" : "validation",
+        "commitSubject" : "Use test parameterized to simplify.",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "Use test parameterized to simplify.",
+        "commitIssue" : null,
+        "rawCommitType" : "test",
+        "localeMap" : null,
+        "rawCommitScope" : "validation",
+        "messageBody" : "",
+        "messageTitle" : "test(validation): Use test parameterized to simplify."
+      } ]
+    } ]
+  }, {
+    "version" : {
+      "major" : 0,
+      "minor" : 1,
+      "patch" : 5,
+      "preReleaseParts" : [ ],
+      "buildMetaDataParts" : [ ],
+      "preRelease" : "",
+      "buildMetaData" : "",
+      "initialDevelopment" : true,
+      "stable" : true
+    },
+    "releaseDate" : "2022-03-22 18:47:13.000 +0800",
     "sections" : [ {
       "title" : "Code Refactoring",
       "commits" : [ {
@@ -42,7 +184,7 @@
         "mentions" : [ ],
         "locales" : [ ],
         "defaultLang" : "en",
-        "commitUrl" : null,
+        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/1a23893027eed68a6998585b8d14f00abd56c674",
         "commitType" : "refactor",
         "commitPackage" : null,
         "commitScope" : "oss",
@@ -86,7 +228,7 @@
         "mentions" : [ ],
         "locales" : [ ],
         "defaultLang" : "en",
-        "commitUrl" : null,
+        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/16d6637a651b5d8bee2ae736179962c2e16b0f28",
         "commitType" : "refactor",
         "commitPackage" : null,
         "commitScope" : "page",
@@ -130,7 +272,7 @@
         "mentions" : [ ],
         "locales" : [ ],
         "defaultLang" : "en",
-        "commitUrl" : null,
+        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/c091ad2acaa8dbfb4ed90ddfef28c77895858a79",
         "commitType" : "refactor",
         "commitPackage" : null,
         "commitScope" : "page",
@@ -174,7 +316,7 @@
         "mentions" : [ ],
         "locales" : [ ],
         "defaultLang" : "en",
-        "commitUrl" : null,
+        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/ef53e1e00d8316070737840e215a01c272057571",
         "commitType" : "refactor",
         "commitPackage" : null,
         "commitScope" : "page",
@@ -196,12 +338,12 @@
     }, {
       "title" : "Chores",
       "commits" : [ {
-        "hashFull" : "fb10a7bd928fdc4ca9bd4527955b33381b050e16",
-        "hash" : "fb10a7bd928fdc4",
-        "hash7" : "fb10a7b",
-        "hash8" : "fb10a7bd",
-        "commitTime" : "2022-03-22 18:43:39.000 +0800",
-        "commitTimeLong" : 1647945819,
+        "hashFull" : "527814cb1d512c0c1cda6cd02bc587301c74897e",
+        "hash" : "527814cb1d512c0",
+        "hash7" : "527814c",
+        "hash8" : "527814cb",
+        "commitTime" : "2022-03-22 18:47:13.000 +0800",
+        "commitTimeLong" : 1647946033,
         "message" : "chore: Setup semantic git log plugin to generate changelog.md\n",
         "merge" : false,
         "authorIdent" : {
@@ -210,7 +352,7 @@
           "email" : "yanbohan98@gmail.com"
         },
         "committerIdent" : {
-          "when" : "2022-03-22 18:43:39.000 +0800",
+          "when" : "2022-03-22 18:47:13.000 +0800",
           "name" : "Han Y.B",
           "email" : "yanbohan98@gmail.com"
         },
@@ -221,7 +363,7 @@
         "mentions" : [ ],
         "locales" : [ ],
         "defaultLang" : "en",
-        "commitUrl" : null,
+        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/527814cb1d512c0c1cda6cd02bc587301c74897e",
         "commitType" : "chore",
         "commitPackage" : null,
         "commitScope" : null,

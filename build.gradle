@@ -59,19 +59,36 @@ test {
 
 changelog {
     toRef = "dev"
-    isUnstable = true
 
     jsonFile = file("${project.rootDir}/CHANGELOG.json")
     fileSets = [
             {
-                template = file("${project.rootDir}/config/gitlog/commit-log.mustache")
+                template = file("${project.rootDir}/config/gitlog/CHANGELOG.md.mustache")
                 target = file("${project.rootDir}/CHANGELOG.md")
             },
     ]
+    issueUrlTemplate = "https://github.com/HorizonAsk/hoawiki-backend/issues/:issueId"
+    commitUrlTemplate = "https://github.com/HorizonAsk/hoawiki-backend/commit/:commitId"
+    mentionUrlTemplate = "https://github.com/HorizonAsk/hoawiki-backend/:username"
+
+    outputs.upToDateWhen { false }
+}
+
+task setNewVersion {
+    println version
+
+    if (project.hasProperty('newVersion')) {
+        println "Set Project to new Version $newVersion"
+
+        String s = buildFile.getText().replaceFirst("version = '$version'", "version = '$newVersion'")
+
+        buildFile.setText(s)
+    }
 }
 
 derive {
     toRef = "dev"
-    isUnstable = true
     derivedVersionMark = "NEXT_VERSION:=="
+
+    outputs.upToDateWhen { false }
 }
