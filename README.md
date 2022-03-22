@@ -99,6 +99,7 @@ MAIL_DOMAIN // 如someemail.com，用于和SMTP_USERNAME组合生成发件人地
 
 参考https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#
 
+特别是https://semantic-gitlog.github.io/semantic-gitlog/#/en-us/fundamentals/commit-types ，以便使用semantic-gitlog 生成changelog
 ```
 <type>(<scope>): <subject>
 <BLANK LINE>
@@ -107,15 +108,17 @@ MAIL_DOMAIN // 如someemail.com，用于和SMTP_USERNAME组合生成发件人地
 <footer>
 ```
 
-|       英文       |                    （说明）                     |       |
-|:--------------:|:-------------------------------------------:|:-----:|
-|   **[feat]**   |                  (feature)                  | 功能特性  |
-|   **[fix]**    | (bug fix, test fix, unsupported situations) | Bug修复 |
-|   **[docs]**   |               (documentation)               |  文档   |
-|  **[style]**   |    (formatting, missing semi colons, …)     |  格式   |
-| **[refactor]** |                                             |  重构   |
-|   **[test]**   |         (when adding missing tests)         | 添加测试  |
-|  **[other]**   |       (maintain, dependencies, ci …)        |  其他   |
+|      英文      |                    （说明）                     |       |
+|:------------:|:-------------------------------------------:|:-----:|
+|   **feat**   |                  (feature)                  | 功能特性  |
+|   **fix**    | (bug fix, test fix, unsupported situations) | Bug修复 |
+|   **docs**   |               (documentation)               |  文档   |
+|  **style**   |    (formatting, missing semi colons, …)     |  格式   |
+| **refactor** |                                             |  重构   |
+|   **test**   |         (when adding missing tests)         | 添加测试  |
+|  **chore**   |       (maintain, dependencies, ci …)        |  其他   |
+
+另有revert,style,build,ci等。
 
 尽量使用英文标记，并维持subject简短。
 
