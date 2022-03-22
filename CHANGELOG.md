@@ -1,20 +1,21 @@
 # 更新日志
 
-## 0.1.7 (2022-03-22)
+## 0.1.0-alpha.4 (2022-03-22)
 
 ### Bug Fixes
 
-- **changelog**: correct the changelog generation settings. ([92991f78](https://github.com/HorizonAsk/hoawiki-backend/commit/92991f78908366b8ed78119984eb34592455f262))
+- **changelog**: correct the changelog generation settings. ([845791c6](https://github.com/HorizonAsk/hoawiki-backend/commit/845791c645eb614a4c6addfd7498c2dba1576ae2))
+- **oss**: available wechat oss support. ([8d9eb8ab](https://github.com/HorizonAsk/hoawiki-backend/commit/8d9eb8ab28201f19880e535b7a1e0d6e3fa8ca13))
 
 
-## 0.1.6 (2022-03-22)
+## 0.1.0-alpha.2 (2022-03-22)
 
 ### Tests
 
 - **validation**: Use test parameterized to simplify. ([45aff891](https://github.com/HorizonAsk/hoawiki-backend/commit/45aff891023827c5a20c2e27bf639f9f9de34034))
 
 
-## 0.1.5 (2022-03-22)
+## 0.1.0-alpha.1 (2022-03-22)
 
 ### Code Refactoring
 

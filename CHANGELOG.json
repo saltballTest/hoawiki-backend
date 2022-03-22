@@ -2,47 +2,51 @@
   "nextVersion" : {
     "major" : 0,
     "minor" : 1,
-    "patch" : 8,
-    "preReleaseParts" : [ ],
+    "patch" : 0,
+    "preReleaseParts" : [ "alpha", "4" ],
     "buildMetaDataParts" : [ ],
-    "preRelease" : "",
+    "preRelease" : "alpha.4",
     "buildMetaData" : "",
     "initialDevelopment" : true,
-    "stable" : true
+    "stable" : false
   },
   "lastVersion" : {
     "major" : 0,
     "minor" : 1,
-    "patch" : 7,
-    "preReleaseParts" : [ ],
+    "patch" : 0,
+    "preReleaseParts" : [ "alpha", "4" ],
     "buildMetaDataParts" : [ ],
-    "preRelease" : "",
+    "preRelease" : "alpha.4",
     "buildMetaData" : "",
     "initialDevelopment" : true,
-    "stable" : true
+    "stable" : false
   },
   "tags" : [ {
+    "version" : null,
+    "releaseDate" : null,
+    "sections" : null
+  }, {
     "version" : {
       "major" : 0,
       "minor" : 1,
-      "patch" : 7,
-      "preReleaseParts" : [ ],
+      "patch" : 0,
+      "preReleaseParts" : [ "alpha", "4" ],
       "buildMetaDataParts" : [ ],
-      "preRelease" : "",
+      "preRelease" : "alpha.4",
       "buildMetaData" : "",
       "initialDevelopment" : true,
-      "stable" : true
+      "stable" : false
     },
-    "releaseDate" : "2022-03-22 19:13:02.000 +0800",
+    "releaseDate" : "2022-03-22 19:46:29.000 +0800",
     "sections" : [ {
       "title" : "Bug Fixes",
       "commits" : [ {
-        "hashFull" : "92991f78908366b8ed78119984eb34592455f262",
-        "hash" : "92991f78908366b",
-        "hash7" : "92991f7",
-        "hash8" : "92991f78",
-        "commitTime" : "2022-03-22 19:13:02.000 +0800",
-        "commitTimeLong" : 1647947582,
+        "hashFull" : "845791c645eb614a4c6addfd7498c2dba1576ae2",
+        "hash" : "845791c645eb614",
+        "hash7" : "845791c",
+        "hash8" : "845791c6",
+        "commitTime" : "2022-03-22 19:13:37.000 +0800",
+        "commitTimeLong" : 1647947617,
         "message" : "fix(changelog): correct the changelog generation settings.\n",
         "merge" : false,
         "authorIdent" : {
@@ -51,7 +55,7 @@
           "email" : "yanbohan98@gmail.com"
         },
         "committerIdent" : {
-          "when" : "2022-03-22 19:13:02.000 +0800",
+          "when" : "2022-03-22 19:13:37.000 +0800",
           "name" : "Han Y.B",
           "email" : "yanbohan98@gmail.com"
         },
@@ -62,7 +66,7 @@
         "mentions" : [ ],
         "locales" : [ ],
         "defaultLang" : "en",
-        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/92991f78908366b8ed78119984eb34592455f262",
+        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/845791c645eb614a4c6addfd7498c2dba1576ae2",
         "commitType" : "fix",
         "commitPackage" : null,
         "commitScope" : "changelog",
@@ -80,19 +84,63 @@
         "rawCommitScope" : "changelog",
         "messageBody" : "",
         "messageTitle" : "fix(changelog): correct the changelog generation settings."
+      }, {
+        "hashFull" : "8d9eb8ab28201f19880e535b7a1e0d6e3fa8ca13",
+        "hash" : "8d9eb8ab28201f1",
+        "hash7" : "8d9eb8a",
+        "hash8" : "8d9eb8ab",
+        "commitTime" : "2022-03-22 19:46:29.000 +0800",
+        "commitTimeLong" : 1647949589,
+        "message" : "fix(oss): available wechat oss support.\n\n(cherry picked from commit a4bc6d49517e4c41937a4e6a350867282dcf5001)\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2022-03-22 19:30:47.000 +0800",
+          "name" : "Han Y.B",
+          "email" : "yanbohan98@gmail.com"
+        },
+        "committerIdent" : {
+          "when" : "2022-03-22 19:46:29.000 +0800",
+          "name" : "Han Y.B",
+          "email" : "yanbohan98@gmail.com"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/HorizonAsk/hoawiki-backend/commit/8d9eb8ab28201f19880e535b7a1e0d6e3fa8ca13",
+        "commitType" : "fix",
+        "commitPackage" : null,
+        "commitScope" : "oss",
+        "commitSubject" : "available wechat oss support.",
+        "commitBody" : "(cherry picked from commit a4bc6d49517e4c41937a4e6a350867282dcf5001)",
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "available wechat oss support.",
+        "commitIssue" : null,
+        "rawCommitType" : "fix",
+        "localeMap" : null,
+        "rawCommitScope" : "oss",
+        "messageBody" : "(cherry picked from commit a4bc6d49517e4c41937a4e6a350867282dcf5001)",
+        "messageTitle" : "fix(oss): available wechat oss support."
       } ]
     } ]
   }, {
     "version" : {
       "major" : 0,
       "minor" : 1,
-      "patch" : 6,
-      "preReleaseParts" : [ ],
+      "patch" : 0,
+      "preReleaseParts" : [ "alpha", "2" ],
       "buildMetaDataParts" : [ ],
-      "preRelease" : "",
+      "preRelease" : "alpha.2",
       "buildMetaData" : "",
       "initialDevelopment" : true,
-      "stable" : true
+      "stable" : false
     },
     "releaseDate" : "2022-03-22 18:49:14.000 +0800",
     "sections" : [ {
@@ -147,13 +195,13 @@
     "version" : {
       "major" : 0,
       "minor" : 1,
-      "patch" : 5,
-      "preReleaseParts" : [ ],
+      "patch" : 0,
+      "preReleaseParts" : [ "alpha", "1" ],
       "buildMetaDataParts" : [ ],
-      "preRelease" : "",
+      "preRelease" : "alpha.1",
       "buildMetaData" : "",
       "initialDevelopment" : true,
-      "stable" : true
+      "stable" : false
     },
     "releaseDate" : "2022-03-22 18:47:13.000 +0800",
     "sections" : [ {
