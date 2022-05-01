@@ -15,12 +15,15 @@ import top.horizonask.hoawiki.common.ValidateUtils;
 import top.horizonask.hoawiki.content.entity.ConceptPage;
 import top.horizonask.hoawiki.content.entity.Content;
 import top.horizonask.hoawiki.content.request.ConceptPageTitleParam;
+import top.horizonask.hoawiki.content.request.PageBriefParam;
 import top.horizonask.hoawiki.content.request.PaginationParam;
 import top.horizonask.hoawiki.content.request.SearchPageParam;
 import top.horizonask.hoawiki.content.service.Impl.ConceptPageServiceImpl;
 import top.horizonask.hoawiki.content.service.Impl.ContentServiceImpl;
 
 import javax.validation.Valid;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * @description:
@@ -39,6 +42,14 @@ public class ConceptPageController {
         this.contentServiceImpl = contentServiceImpl;
     }
 
+    /**
+     * <p>GET the latest pages lists.</p>
+     * <p>Return the abstract of page and the first 150 words of latest content item.</p>
+     *
+     * @param paginationParam currentPage, and so on for pagination.
+     * @param validResult @Valid result
+     * @return org.springframework.http.ResponseEntity<cn.hutool.json.JSONObject>
+     */
     @GetMapping("")
     public ResponseEntity<JSONObject> latestPage(@Valid PaginationParam paginationParam,
                                                  BindingResult validResult) {
@@ -55,6 +66,42 @@ public class ConceptPageController {
 //                .data("totalItems", conceptPages.getTotal()) // item number
                 ;
         for (ConceptPage conceptPage : conceptPages.getRecords()) {
+            JSONObject pageItem = conceptPage.getJson();
+            Content content = contentServiceImpl.getPageLatestContentBriefById(conceptPage.getPageId());
+            if (content != null) {
+                pageItem.set("content", content.getContentText());
+            } else {
+                pageItem.set("content", null);
+            }
+            responseUtils.accumulate("pageItems", pageItem); // page items
+        }
+        return responseUtils.toResponseEntity();
+    }
+
+    /**
+     * <p>Post to get pages abstracts.</p>
+     * <p>Return the abstract of pages and the first 150 words of latest content items.</p>
+     *
+     * @param pageBriefParam currentPage, and so on for pagination.
+     * @param validResult @Valid result
+     * @return org.springframework.http.ResponseEntity<cn.hutool.json.JSONObject>
+     */
+    @PostMapping("/pageBrief")
+    public ResponseEntity<JSONObject> pageBrief(@Valid @RequestBody PageBriefParam pageBriefParam, BindingResult validResult) {
+        if (validResult.hasErrors()) {
+            ResponseUtils responseUtils = ResponseUtils.fail(ApiStatus.API_RESPONSE_PARAM_BAD);
+            for (FieldError error : validResult.getFieldErrors()) {
+                responseUtils.accumulate("error", JSONUtil.createObj().set(error.getField(), error.getDefaultMessage()));
+            }
+            return responseUtils.toResponseEntity();
+        }
+
+        List<ConceptPage> conceptPages = conceptPageServiceImpl.listByIds(pageBriefParam.getPageIds());
+        ResponseUtils responseUtils = ResponseUtils.success()
+//                .data("totalPages", conceptPages.getPages()) // page number
+//                .data("totalItems", conceptPages.getTotal()) // item number
+                ;
+        for (ConceptPage conceptPage : conceptPages) {
             JSONObject pageItem = conceptPage.getJson();
             Content content = contentServiceImpl.getPageLatestContentBriefById(conceptPage.getPageId());
             if (content != null) {
@@ -89,6 +136,11 @@ public class ConceptPageController {
         return responseUtils.toResponseEntity();
     }
 
+    /**
+     * <p>Get page by id</p>
+     * @param pageId page's id
+     * @return org.springframework.http.ResponseEntity<cn.hutool.json.JSONObject>
+     */
     @GetMapping("/{pageId}")
     public ResponseEntity<JSONObject> getPageById(@PathVariable String pageId) {
         if (ValidateUtils.wrongRequestPageId(pageId)) {
