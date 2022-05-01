@@ -34,4 +34,38 @@ public interface PageLinkMapper extends BaseMapper<PageLink> {
             "FROM page_links " +
             "WHERE page_to=#{pageId}")
     List<PageLink> getPageLinkToId(@Param("pageId") Long pageId);
+
+    /**
+     * <p>Get page link by page from.</p>
+     * <p>Means <b>pageIds</b>->?</p>
+     *
+     * @param pageIds pageId from
+     * @return java.util.List<top.horizonask.hoawiki.pagelink.entity.PageLink>
+     */
+    @Select("<script> " +
+            "SELECT * " +
+            "FROM page_links " +
+            "WHERE page_from in " +
+            "<foreach item='item' index='index' collection='pageIds' open='(' separator=',' close=')'> " +
+            "   #{item} " +
+            "</foreach>" +
+            "</script> ")
+    List<PageLink> getPageLinkFromIds(@Param("pageIds") List<Long> pageIds);
+
+    /**
+     * <p>Get page be linked from.</p>
+     * <p>Means ?-><b>pageIds</b></p>
+     *
+     * @param pageIds pageId to
+     * @return java.util.List<top.horizonask.hoawiki.pagelink.entity.PageLink>
+     */
+    @Select("<script> " +
+            "SELECT * " +
+            "FROM page_links " +
+            "WHERE page_to in " +
+            "<foreach item='item' index='index' collection='pageIds' open='(' separator=',' close=')'> " +
+            "   #{item} " +
+            "</foreach>" +
+            "</script> ")
+    List<PageLink> getPageLinkToIds(@Param("pageIds") List<Long> pageIds);
 }

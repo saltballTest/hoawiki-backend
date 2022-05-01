@@ -44,6 +44,16 @@ public class PageLinkServiceImpl extends ServiceImpl<PageLinkMapper, PageLink> i
         return pageLinkMapper.getPageLinkToId(pageId);
     }
 
+    @Override
+    public List<PageLink> getPageLinkFromIds(List<Long> pageIds) {
+        return pageLinkMapper.getPageLinkFromIds(pageIds);
+    }
+
+    @Override
+    public List<PageLink> getPageLinkToIds(List<Long> pageIds) {
+        return pageLinkMapper.getPageLinkToIds(pageIds);
+    }
+
     /**
      * <b>Create new PageLinks with multiple inputs.</b>
      *

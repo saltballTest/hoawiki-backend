@@ -33,6 +33,24 @@ public interface PageLinkService extends IService<PageLink> {
     List<PageLink> getPageLinkToId(Long pageId);
 
     /**
+     * <b>Get Page link tos</b>
+     * <p><b>pageIds</b>->?</p>
+     *
+     * @param pageIds page id to get page links.
+     * @return java.util.List<top.horizonask.hoawiki.pagelink.entity.PageLink>
+     */
+    List<PageLink> getPageLinkFromIds(List<Long> pageIds);
+
+    /**
+     * <b>Get Pages be linked</b>
+     * <p>?-><b>pageIds</b></p>
+     *
+     * @param pageIds page id to get page links.
+     * @return java.util.List<top.horizonask.hoawiki.pagelink.entity.PageLink>
+     */
+    List<PageLink> getPageLinkToIds(List<Long> pageIds);
+
+    /**
      * <b>Create new PageLinks with multiple inputs.</b>
      *
      * @param newPageLinkList List of PageLink
