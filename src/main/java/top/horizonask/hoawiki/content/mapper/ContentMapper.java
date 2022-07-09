@@ -65,6 +65,31 @@ public interface ContentMapper extends BaseMapper<Content> {
     Content getLatestContentBrief(@Param("pageId") Long pageId);
 
     /**
+     * Get pages' contents by content_ids.
+     *
+     * @param pageId id of pages to get their contents
+     * @return top.horizonask.hoawiki.content.entity.Content
+     */
+    @Select("SELECT " +
+            "content_id," +
+            "LEFT(content_text,150) as content_text," +
+            "create_time," +
+            "delete_time " +
+            "FROM contents " +
+            "WHERE content_id " +
+            "in " +
+            "(" +
+            "SELECT content_id " +
+            "FROM page_contents " +
+            "where page_id == #{pageIds}" +
+            ") " +
+            "AND delete_time is null " + // not deleted
+            "ORDER BY create_time desc,content_id desc " +
+            "LIMIT 1"
+    )
+    Content getPageBriefs(@Param("pageIds") Long pageId);
+
+    /**
      * Get all content of a page
      *
      * @param pageId id of page
